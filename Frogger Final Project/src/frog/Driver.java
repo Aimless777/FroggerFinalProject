@@ -30,7 +30,7 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 	int screen_width = 1000;
 	int screen_height = 1000;
 	Froggy froggy;
-
+	static Music moosic = new Music("sweep.wav", true);
 	// instantiate objct car
 	Car[] car2 = new Car[10];
 	Car[] car3 = new Car[10];
@@ -157,7 +157,7 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 			car2[i].setVx(-7);
 			car2[i].move();
 			
-			car3[i].setVx(-5);
+			car3[i].setVx(-31);
 			car3[i].move();
 			
 			car4[i].setVx(-4);
@@ -202,6 +202,7 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 
 	public static void main(String[] arg) {
 		Driver d = new Driver();
+		moosic.play();
 	}
 
 	/* *
@@ -291,14 +292,14 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 		// 39 ->
 		
 		if(e.getKeyCode()==38) {
-			froggy.setY(froggy.getY()-30);
+			froggy.setY(froggy.getY()-52);
 		}
 		if(e.getKeyCode()==40) {
-			froggy.setY(froggy.getY()+30);
+			froggy.setY(froggy.getY()+52);
 		}if(e.getKeyCode()==37) {
-			froggy.setX(froggy.getX()-30);
+			froggy.setX(froggy.getX()-52);
 		}if(e.getKeyCode()==39) {
-			froggy.setX(froggy.getX()+30);
+			froggy.setX(froggy.getX()+52);
 		}
 		switch(e.getKeyCode()) {
 		

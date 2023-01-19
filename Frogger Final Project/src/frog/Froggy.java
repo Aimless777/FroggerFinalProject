@@ -28,8 +28,8 @@ public class Froggy {
 	public Froggy(String fileName) {
 		// assignment statements for attributes
 
-		x = 400;
-		y = 800;
+		x = 460;
+		y = 900;
 		vx = 0;
 		vy = 0;
 		width = 50;
