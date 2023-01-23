@@ -32,14 +32,33 @@ public class Froggy {
 		y = 900;
 		vx = 0;
 		vy = 0;
-		width = 50;
-		height = 50;
+		width = 3;
+		height = 30;
 
 		img = getImage(fileName);
 		init(x, y);
 
 	}
+	public Froggy(int newX, int newY, int newWidth, int newHeight) {
+		// assignment statements for attributes
 
+		x = newX;
+		y = newY;
+		vx = 0;
+		vy = 0;
+		width = newWidth;
+		height = newHeight;
+
+		img = getImage(fileName);
+		init(x, y);
+
+	}
+	public int getX1() {
+		return x;
+	}
+	public int getY1() {
+		return y;
+	}
 	public int getWidth() {
 		return width;
 	}

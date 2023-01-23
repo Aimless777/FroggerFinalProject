@@ -44,7 +44,6 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 	Logs[] Logs3 = new Logs[10];
 	Logs[] Logs4 = new Logs[10];
 	Logs[] Logs5 = new Logs[10];
-
 	Background bg;
 	int my_variable = 3; // example
 
@@ -52,11 +51,7 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 	String win = "";
 	String lost = "";
 
-	public void paint1(Graphics g) {
-		super.paintComponent(g);
-	Rectangle rFroggy = new Rectangle(froggy.getX(), froggy.getY(), froggy.getWidth(), froggy.getHeight());
 	
-	}
 	
 	public boolean Intersects() {
 		
@@ -77,7 +72,7 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 
 		super.paintComponent(g);
 		bg.paint(g);
-
+		g.drawRect(froggy.getX(), froggy.getY(), froggy.getWidth(), froggy.getHeight());
 		g.setFont(font);
 		g.setColor(Color.white);
 		g.drawString(("Lives:") + Integer.toString(my_variable), 0, 870);
@@ -86,24 +81,31 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 		// paint sprites for carss
 		for (int i = 0; i < car2.length; i++) {
 			car2[i].paint(g);
+			g.drawRect(car2[i].getX(), car2[i].getY()+20, car2[i].getWidth()+25, car2[i].getHieght());
 		}
 		for(int i = 0; i < car3.length; i++) {
 			car3[i].paint(g);
+			g.drawRect(car3[i].getX(), car3[i].getY()+20, car3[i].getWidth()+25, car3[i].getHieght());
 		}
 		for(int i = 0; i < car4.length; i++) {
 			car4[i].paint(g);
+			g.drawRect(car4[i].getX(), car4[i].getY()+20, car4[i].getWidth()+25, car4[i].getHieght());
 		}
 		for(int i = 0; i < car5.length; i++) {
 			car5[i].paint(g);
+			g.drawRect(car5[i].getX(), car5[i].getY()+20, car5[i].getWidth()+25, car5[i].getHieght());
 		}
 		for(int i = 0; i < car6.length; i++) {
 			car6[i].paint(g);
+			g.drawRect(car6[i].getX(), car6[i].getY()+20, car6[i].getWidth()+25, car6[i].getHieght());
 		}
 		for(int i = 0; i < car7.length; i++) {
 			car7[i].paint(g);
+			g.drawRect(car7[i].getX(), car7[i].getY()+20, car7[i].getWidth()+25, car7[i].getHieght());
 		}
 		for(int i = 0; i < car8.length; i++) {
 			car8[i].paint(g);
+			g.drawRect(car8[i].getX(), car8[i].getY()+35, car8[i].getWidth()+25, car8[i].getHieght()-40);
 		}
 		for(int i = 0; i < Logs1.length; i++) {
 			Logs1[i].paint(g);
@@ -124,7 +126,15 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 
 		// paint and update froggy
 		froggy.paint(g);
+		if (froggy.getY() <= 0) {
+			froggy.setX(460);
+			froggy.setY(900);
+			g.setColor(Color.yellow);
+			
+		
 
+		}
+		g.drawRect(froggy.getX1()+40, froggy.getY1()+40, 20, 30);
 		// car one
 		g.drawString(lost, 0, 50);
 		if (my_variable == 0) {
@@ -149,6 +159,8 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 	//
 	public void update() {
 
+		
+		
 		froggy.move();
 
 		// car two
@@ -156,39 +168,101 @@ public class Driver extends JPanel implements ActionListener, KeyListener {
 
 			car2[i].setVx(-7);
 			car2[i].move();
-			
+			if (froggy.collided(car2[i].getX(), car2[i].getY()+35 , car2[i].getWidth() + 25,
+					car2[i].getHieght()-40)) {
+				my_variable--;
+				froggy.setX(460);
+				froggy.setY(900);
+			}
 			car3[i].setVx(-31);
 			car3[i].move();
-			
+			if (froggy.collided(car3[i].getX(), car3[i].getY()+35 , car3[i].getWidth() + 25,
+					car3[i].getHieght()-40)) {
+				my_variable--;
+				froggy.setX(460);
+				froggy.setY(900);
+			}
 			car4[i].setVx(-4);
 			car4[i].move();
-			
+			if (froggy.collided(car4[i].getX(), car4[i].getY()+35 , car4[i].getWidth() + 25,
+					car4[i].getHieght()-40)) {
+				my_variable--;
+				froggy.setX(460);
+				froggy.setY(900);
+			}
 			car5[i].setVx(-1);
 			car5[i].move();
-			
+			if (froggy.collided(car5[i].getX(), car5[i].getY()+35 , car5[i].getWidth() + 25,
+					car5[i].getHieght()-40)) {
+				my_variable--;
+				froggy.setX(460);
+				froggy.setY(900);
+			}
 			car6[i].setVx(-6);
 			car6[i].move();
-			
+			if (froggy.collided(car6[i].getX(), car6[i].getY()+35 , car6[i].getWidth() + 25,
+					car6[i].getHieght()-40)) {
+				my_variable--;
+				froggy.setX(460);
+				froggy.setY(900);
+			}
 			car7[i].setVx(-4);
 			car7[i].move();
-			
+			if (froggy.collided(car7[i].getX(), car7[i].getY()+35 , car7[i].getWidth() + 25,
+					car7[i].getHieght()-40)) {
+				my_variable--;
+				froggy.setX(460);
+				froggy.setY(900);
+			}
 			car8[i].setVx(-9);
 			car8[i].move();
-			
+			if (froggy.collided(car8[i].getX(), car8[i].getY()+35 , car8[i].getWidth() + 25,
+					car8[i].getHieght()-40)) {
+				my_variable--;
+				froggy.setX(460);
+				froggy.setY(900);
+			}
 			Logs1[i].setVx(-3);
 			Logs1[i].move();
+//			if (froggy.collided(car2[i].getX(), car2[i].getY() + 20, car2[i].getWidth() + 25,
+//					car2[i].getHieght())) {
+//				my_variable--;
+//				froggy.setX(460);
+//				froggy.setY(900);
+//			}
 
 			Logs2[i].setVx(-2);
 			Logs2[i].move();
-			
+//			if (froggy.collided(car2[i].getX(), car2[i].getY() + 20, car2[i].getWidth() + 25,
+//					car2[i].getHieght())) {
+//				my_variable--;
+//				froggy.setX(460);
+//				froggy.setY(900);
+//			}
 			Logs3[i].setVx(-9);
 			Logs3[i].move();
-			
+//			if (froggy.collided(car2[i].getX(), car2[i].getY() + 20, car2[i].getWidth() + 25,
+//					car2[i].getHieght())) {
+//				my_variable--;
+//				froggy.setX(460);
+//				froggy.setY(900);
+//			}
 			Logs4[i].setVx(-2);
 			Logs4[i].move();
-			
+//			if (froggy.collided(car2[i].getX(), car2[i].getY() + 20, car2[i].getWidth() + 25,
+//					car2[i].getHieght())) {
+//				my_variable--;
+//				froggy.setX(460);
+//				froggy.setY(900);
+//			}
 			Logs5[i].setVx(-5);
 			Logs5[i].move();
+//			if (froggy.collided(car2[i].getX(), car2[i].getY() + 20, car2[i].getWidth() + 25,
+//					car2[i].getHieght())) {
+//				my_variable--;
+//				froggy.setX(460);
+//				froggy.setY(900);
+//			}
 		}
 		
 
